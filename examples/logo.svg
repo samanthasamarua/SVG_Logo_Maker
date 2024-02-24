@@ -1,4 +1,1 @@
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">
-                    <polygon points="200,10 250,190 150,190" fill="SVG" />
-                    <text x="150" y="100" font-size="20" text-anchor="middle" fill="white</text>
-                </svg><text x="50" y="50" font-size="20" text-anchor="middle" fill="white">SVG</text></svg>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200"><circle r="45" cx="50" cy="50" fill="green" />white<text x="50" y="50" font-size="20" text-anchor="middle" fill="white">SAM</text></svg>

@@ -34,13 +34,13 @@ inquirer
     let shapeInstance;
 
     if (response.shape === 'Square') {
-        shapeInstance = new Square(response.text, response.shapeColor, response.textColor);
+        shapeInstance = new Square(response.shapeColor, response.text, response.textColor);
 
     } else if (response.shape === 'Circle') {
-        shapeInstance = new Circle(response.text, response.shapeColor, response.textColor);
-        
+        shapeInstance = new Circle(response.shapeColor, response.text, response.textColor);
+
     } else if (response.shape === 'Triangle') {
-        shapeInstance = new Triangle(response.text, response.shapeColor, response.textColor);
+        shapeInstance = new Triangle(response.shapeColor, response.text, response.textColorr);
     } else {
         console.error('Invalid shape selected');
         return;
@@ -61,11 +61,13 @@ inquirer
 
 // Defines SVG class 
 class Svg {
+
+    // Constructor method - Initialises two properties which will store the SVG text and shape elements respectively
     constructor() {
         this.textElement = '';
         this.shapeElement = '';
     }
-
+    // Render method returns SVG string that combine shape and text eement
     render() {
         return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">${this.shapeElement}${this.textElement}</svg>`;
     }
