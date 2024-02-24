@@ -10,6 +10,12 @@ inquirer
       type: 'input',
       name: 'text',
       message: 'Enter up to (3) characters:',
+      validate: function(input) {
+        if (input.length > 3) {
+            return 'Please enter up to 3 characters only!';
+        }
+        return true;
+      }
     },
     {
       type: 'input',
@@ -29,7 +35,7 @@ inquirer
     },
   ])
 
-//  Handles User Response
+//  Handles User input
   .then((response) => {
     let shapeInstance;
 
@@ -48,10 +54,11 @@ inquirer
 
     const svg = new Svg();
 
-    // Setting text and shape elements
+// Setting text and shape elements
     svg.setTextElement(response.text, response.textColor);
     svg.setShapeElement(shapeInstance);
 
+// Writes to file
     fs.writeFile('./logo.svg', svg.render(), (error) => {
         if (error) {
             console.error(error);
@@ -88,18 +95,19 @@ class Svg {
 
     generateTextElement(text, color) {
         // Set text position based on shape
-        const shapeX = 50; // Example x-coordinate for the shape
-        const shapeY = 50; // Example y-coordinate for the shape
-        const shapeWidth = 100; // Example width for the shape
-        const shapeHeight = 100; // Example height for the shape
-
-        const textX = shapeX + shapeWidth / 2; // Calculate text x-coordinate based on shape
-        const textY = shapeY + shapeHeight / 2; // Calculate text y-coordinate based on shape
+        const shapeX = 50; 
+        const shapeY = 50; 
+        const shapeWidth = 100;
+        const shapeHeight = 100; 
         
-        return `<g>
+        // Calculate text x,y coordinate based on shape
+        const textX = shapeX + shapeWidth / 2;
+        const textY = shapeY + shapeHeight / 2; 
+        
+        return `<svg>
             ${this.shapeElement}
             <text x="${textX}" y="${textY}" font-size="50" dominantBaseline="middle" textAnchor="middle" fill="${color}">${text}</text>
-        </g>`;
+        </svg>`;
     }
 }
 
