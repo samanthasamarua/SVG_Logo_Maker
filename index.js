@@ -9,11 +9,11 @@ inquirer
     {
       type: 'input',
       name: 'text',
-      message: 'Enter three characters:',
+      message: 'Enter up to (3) characters:',
     },
     {
       type: 'input',
-      message: 'Enter text color:',
+      message: 'Text Color: Enter a color keyword of hexadecimal number',
       name: 'textColor', 
     },
     {
@@ -24,7 +24,7 @@ inquirer
     },
     {
       type: 'input',
-      message: 'Enter shape color:',
+      message: 'Shape Color: Enter a color keyword or hexadecimal number:',
       name: 'shapeColor',
     },
   ])
@@ -32,10 +32,13 @@ inquirer
 //  Handles User Response
   .then((response) => {
     let shapeInstance;
+
     if (response.shape === 'Square') {
         shapeInstance = new Square(response.text, response.shapeColor, response.textColor);
+
     } else if (response.shape === 'Circle') {
         shapeInstance = new Circle(response.text, response.shapeColor, response.textColor);
+        
     } else if (response.shape === 'Triangle') {
         shapeInstance = new Triangle(response.text, response.shapeColor, response.textColor);
     } else {
