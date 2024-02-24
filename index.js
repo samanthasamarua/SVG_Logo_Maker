@@ -34,23 +34,25 @@ inquirer
     let shapeInstance;
 
     if (response.shape === 'Square') {
-        shapeInstance = new Square(response.shapeColor, response.text, response.textColor);
+        shapeInstance = new Square(response.shapeColor, response.textColor, response.text);
 
     } else if (response.shape === 'Circle') {
-        shapeInstance = new Circle(response.shapeColor, response.text, response.textColor);
+        shapeInstance = new Circle(response.shapeColor, response.textColor, response.text);
 
     } else if (response.shape === 'Triangle') {
-        shapeInstance = new Triangle(response.shapeColor, response.text, response.textColorr);
+        shapeInstance = new Triangle(response.shapeColor, response.textColor, response.text);
     } else {
         console.error('Invalid shape selected');
         return;
     }
 
     const svg = new Svg();
+
+    // Setting text and shape elements
     svg.setTextElement(response.text, response.textColor);
     svg.setShapeElement(shapeInstance);
 
-    fs.writeFile('./examples/logo.svg', svg.render(), (error) => {
+    fs.writeFile('./logo.svg', svg.render(), (error) => {
         if (error) {
             console.error(error);
         } else {
@@ -73,18 +75,31 @@ class Svg {
     }
 
     setTextElement(text, color) {
+        console.log('Text:', text);
+        console.log('Color:', color);
         this.textElement = this.generateTextElement(text, color);
+        
     }
 
     setShapeElement(shape) {
+        console.log('Shape:', shape)
         this.shapeElement = shape.render();
     }
 
     generateTextElement(text, color) {
-        const textX = 50;
-        const textY = 50;
+        // Set text position based on shape
+        const shapeX = 50; // Example x-coordinate for the shape
+        const shapeY = 50; // Example y-coordinate for the shape
+        const shapeWidth = 100; // Example width for the shape
+        const shapeHeight = 100; // Example height for the shape
+
+        const textX = shapeX + shapeWidth / 2; // Calculate text x-coordinate based on shape
+        const textY = shapeY + shapeHeight / 2; // Calculate text y-coordinate based on shape
         
-        return `<text x="${textX}" y="${textY}" font-size="20" text-anchor="middle" fill="${color}">${text}</text>`;
+        return `<g>
+            ${this.shapeElement}
+            <text x="${textX}" y="${textY}" font-size="50" dominantBaseline="middle" textAnchor="middle" fill="${color}">${text}</text>
+        </g>`;
     }
 }
 
