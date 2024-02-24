@@ -35,10 +35,11 @@ THEN I am shown a 300x200 pixel image that matches the criteria I entered
 The SVG logo generator requires the installation of the following:
 1. Node.js
 2. Inquirer npm (npm i inquirer@8.2.4)
-3. Jest testing
+3. Install latest version of jest
 
 # Usage
 1. In order to use the SVG Logo maker, clone the repository to Visual Studio Code.
+2. To run unit testing, navigate to shapes.test.js, open integrated terminal, type npm run test in command line.
 2. Navigate to index.js and open integrated terminal.
 3. Enter "node index.js" in the command line
 4. User will be presented with a series of questions which the user is required to answer. 
@@ -48,3 +49,7 @@ The SVG logo generator requires the installation of the following:
 # Walkthrough Video Link
 
 https://drive.google.com/file/d/1FQTbHYbttSxZOC5gafMfHvBk55BDGZNA/view
+
+# Examples of Generate Logos Link
+
+[Example Folder](./examples)
