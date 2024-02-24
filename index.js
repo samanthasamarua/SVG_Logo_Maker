@@ -19,7 +19,7 @@ inquirer
     },
     {
       type: 'input',
-      message: 'Text Color: Enter a color keyword of hexadecimal number',
+      message: 'Text Color (Enter a color keyword or hexadecimal number):',
       name: 'textColor', 
     },
     {
@@ -30,7 +30,7 @@ inquirer
     },
     {
       type: 'input',
-      message: 'Shape Color: Enter a color keyword or hexadecimal number:',
+      message: 'Shape Color (Enter a color keyword or hexadecimal number):',
       name: 'shapeColor',
     },
   ])

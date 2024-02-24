@@ -47,3 +47,4 @@ The SVG logo generator requires the installation of the following:
 
 # Walkthrough Video Link
 
+https://drive.google.com/file/d/1FQTbHYbttSxZOC5gafMfHvBk55BDGZNA/view
